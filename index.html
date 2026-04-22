@@ -3,40 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fabrício — Front-End Dev & Marketing Digital</title>
-  <meta name="description" content="Fabrício Henrique — Desenvolvedor Front-End e especialista em tráfego pago. Crio sites, sistemas e campanhas que geram resultado real.">
-
-  <!-- PRECONNECT para fontes (reduz FCP) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Carrega fonte sem bloquear renderização -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap"></noscript>
-
-  <!-- PRELOAD da imagem LCP -->
-  <link rel="preload" href="imagens/whatsapp.png" as="image">
-
+  <title>Fabrício — Front-End Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f0ede8;
       --ink: #1a1a1a;
       --ink2: #4a4a4a;
       --accent: #ff4d00;
+      --accent2: #1a1a1a;
       --card: #e8e4de;
       --border: #d0cbc3;
       --white: #faf8f5;
     }
+
     * { margin:0; padding:0; box-sizing:border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--bg);
       color: var(--ink);
       font-family: 'Cabinet Grotesk', sans-serif;
       overflow-x: hidden;
     }
+
     a { text-decoration: none; color: inherit; }
 
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -45,106 +39,599 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+    }
+
     .nav-logo span { color: var(--accent); }
+
     .nav-links { display: flex; gap: 32px; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); transition: color 0.2s; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      transition: color 0.2s;
+    }
     .nav-links a:hover { color: var(--accent); }
 
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; position: relative; overflow: hidden; }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 60px; position: relative; z-index: 1; }
-    .hero-tag { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--white); border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); margin-bottom: 32px; width: fit-content; }
-    .hero-tag-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.5s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 8vw, 9rem); line-height: 0.92; letter-spacing: -0.01em; margin-bottom: 28px; }
-    .hero h1 .outline { -webkit-text-stroke: 2px var(--ink); color: transparent; }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      margin-bottom: 32px;
+      width: fit-content;
+    }
+
+    .hero-tag-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%,100%{opacity:1} 50%{opacity:0.3}
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 8vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .outline {
+      -webkit-text-stroke: 2px var(--ink);
+      color: transparent;
+    }
+
     .hero h1 .accent { color: var(--accent); }
-    .hero-desc { font-size: 1rem; color: var(--ink2); line-height: 1.7; max-width: 380px; margin-bottom: 40px; }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--ink2);
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 40px;
+    }
+
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary { background: var(--ink); color: var(--white); border: none; border-radius: 100px; padding: 14px 28px; font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.02em; }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      padding: 14px 28px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
+    }
+
     .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); border-radius: 100px; padding: 14px 28px; font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: border-color 0.2s, transform 0.15s; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 14px 28px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
     .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
-    .hero-right { display: flex; align-items: center; justify-content: center; padding: 80px 60px 80px 0; }
-    .hero-visual { width: 100%; max-width: 420px; aspect-ratio: 3/4; background: var(--card); border-radius: 24px; border: 1px solid var(--border); position: relative; overflow: hidden; display: flex; align-items: flex-end; }
-    .hero-visual-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); }
-    .hero-visual-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; }
-    .hero-visual-accent { position: absolute; width: 200px; height: 200px; background: var(--accent); border-radius: 50%; top: -60px; right: -60px; opacity: 0.6; filter: blur(60px); }
-    .hero-card { position: relative; z-index: 1; background: rgba(240,237,232,0.95); margin: 20px; border-radius: 16px; padding: 20px; width: calc(100% - 40px); }
-    .hero-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; margin-bottom: 4px; }
-    .hero-card-role { font-size: 12px; color: var(--ink2); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
-    .hero-card-stats { display: flex; gap: 16px; }
-    .stat { display: flex; flex-direction: column; gap: 2px; }
-    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--accent); letter-spacing: 0.05em; }
-    .stat-label { font-size: 11px; color: var(--ink2); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    .marquee-wrap { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--ink); padding: 16px 0; }
-    .marquee { display: flex; gap: 60px; animation: marquee 18s linear infinite; width: max-content; }
-    .marquee span { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; color: var(--white); white-space: nowrap; text-transform: uppercase; }
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px 80px 0;
+      position: relative;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 3/4;
+      background: var(--card);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-visual-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    }
+
+    .hero-visual-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .hero-visual-accent {
+      position: absolute;
+      width: 200px; height: 200px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: -60px; right: -60px;
+      opacity: 0.6;
+      filter: blur(60px);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(240,237,232,0.95);
+      margin: 20px;
+      border-radius: 16px;
+      padding: 20px;
+      width: calc(100% - 40px);
+    }
+
+    .hero-card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-role {
+      font-size: 12px;
+      color: var(--ink2);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-stats {
+      display: flex;
+      gap: 16px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--ink2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Big rotating text */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--ink);
+      padding: 16px 0;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 60px;
+      animation: marquee 18s linear infinite;
+      width: max-content;
+    }
+
+    .marquee span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
     .marquee span.dot { color: var(--accent); font-size: 1rem; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
-    .section-label { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-    .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1.5px; background: var(--accent); }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1; letter-spacing: 0.01em; margin-bottom: 60px; }
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; cursor: pointer; }
-    .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .project-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
-    .project-img { aspect-ratio: 16/9; background: var(--ink); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .project-card.featured .project-img { aspect-ratio: auto; min-height: 280px; }
-    .project-img-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1a1a1a, #333); }
-    .project-img-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,77,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,77,0,0.06) 1px, transparent 1px); background-size: 24px 24px; }
-    .project-emoji { position: relative; z-index: 1; font-size: 3.5rem; }
-    .project-body { padding: 24px; }
-    .project-tag { display: inline-block; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 3px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); margin-bottom: 12px; }
-    .project-body h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.03em; margin-bottom: 8px; }
-    .project-body p { font-size: 0.9rem; color: var(--ink2); line-height: 1.6; margin-bottom: 20px; }
-    .project-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; transition: gap 0.2s; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── PROJECTS ── */
+    .section {
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-bottom: 60px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-img {
+      aspect-ratio: 16/9;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-card.featured .project-img {
+      aspect-ratio: auto;
+      min-height: 280px;
+    }
+
+    .project-img-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+    }
+
+    .project-img-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,77,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,77,0,0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .project-emoji {
+      position: relative;
+      z-index: 1;
+      font-size: 3.5rem;
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      margin-bottom: 12px;
+    }
+
+    .project-body h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      transition: gap 0.2s;
+    }
+
     .project-link:hover { gap: 12px; }
 
-    .testimonials-wrap { background: var(--ink); padding: 100px 60px; }
-    .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+    /* ── TESTIMONIALS ── */
+    .testimonials-wrap {
+      background: var(--ink);
+      padding: 100px 60px;
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .testimonials-inner .section-label { color: var(--accent); }
     .testimonials-inner .section-title { color: var(--white); }
-    .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .testimonial-card { background: #242424; border: 1px solid #333; border-radius: 20px; padding: 32px; transition: border-color 0.2s; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #242424;
+      border: 1px solid #333;
+      border-radius: 20px;
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+
     .testimonial-card:hover { border-color: var(--accent); }
-    .quote-mark { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--accent); line-height: 0.8; margin-bottom: 16px; }
-    .testimonial-card p { font-size: 1rem; color: #ccc; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white; flex-shrink: 0; }
-    .author-name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
-    .author-role { font-size: 0.8rem; color: #666; }
 
-    #contact { background: var(--white); border-top: 1px solid var(--border); }
-    .contact-inner { max-width: 1200px; margin: 0 auto; padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .contact-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 5rem); line-height: 0.95; margin-bottom: 20px; }
+    .quote-mark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: var(--accent);
+      line-height: 0.8;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .author-role {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
     .contact-left h2 span { color: var(--accent); }
-    .contact-left p { color: var(--ink2); line-height: 1.7; margin-bottom: 32px; font-size: 0.95rem; }
-    .contact-info { display: flex; flex-direction: column; gap: 12px; }
-    .contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--ink2); }
-    .contact-icon { width: 36px; height: 36px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+
+    .contact-left p {
+      color: var(--ink2);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--ink2);
+    }
+
+    .contact-icon {
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Form */
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
     .form-field { display: flex; flex-direction: column; gap: 6px; }
-    .form-field label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink2); }
-    .form-field input, .form-field textarea { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 16px; font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.2s; width: 100%; }
-    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); }
+
+    .form-field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink2);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--accent); }
+
     .form-field textarea { resize: none; line-height: 1.6; }
-    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--border); }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: var(--border); }
 
-    footer { background: var(--ink); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--white); }
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 40px 60px;
+      display: 30px 60px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
     .footer-logo span { color: var(--accent); }
+
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 0.85rem; color: #666; transition: color 0.2s; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: #666;
+      transition: color 0.2s;
+    }
     .footer-links a:hover { color: var(--accent); }
-    .footer-copy { font-size: 0.8rem; color: #444; }
 
-    .btn-whatsapp { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 999; display: block; }
-    .btn-whatsapp img { width: 100%; height: 100%; }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #444;
+    }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
@@ -160,14 +647,36 @@
       footer { padding: 30px 24px; flex-direction: column; text-align: center; }
     }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Fade-in animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* WHATSAPP */
+.btn-whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  z-index:999;
+}
+
+.btn-whatsapp img{
+  width:100%;
+}
   </style>
 </head>
 <body>
 
-  <nav aria-label="Navegação principal">
-    <div class="nav-logo">Fabrício<span>.</span></div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Fabrício</div>
     <div class="nav-links">
       <a href="#projetos">Projetos</a>
       <a href="#depoimentos">Depoimentos</a>
@@ -175,20 +684,25 @@
     </div>
   </nav>
 
-  <section class="hero" aria-label="Apresentação">
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">
-        <span class="hero-tag-dot" aria-hidden="true"></span>
+        <span class="hero-tag-dot"></span>
         Disponível para projetos
       </div>
-      <h1>FRONT<br><span class="outline">END</span><br><span class="accent">DEV.</span></h1>
+      <h1>
+        FRONT<br>
+        <span class="outline">END</span><br>
+        <span class="accent">DEV.</span>
+      </h1>
       <p class="hero-desc">Transformando ideias em websites interativos e modernos. Cada pixel tem propósito, cada linha de código tem intenção.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Fale comigo</button>
         <button class="btn-outline" onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">Ver projetos →</button>
       </div>
     </div>
-    <div class="hero-right" aria-hidden="true">
+    <div class="hero-right">
       <div class="hero-visual">
         <div class="hero-visual-bg"></div>
         <div class="hero-visual-grid"></div>
@@ -197,119 +711,204 @@
           <div class="hero-card-name">Fabrício</div>
           <div class="hero-card-role">Front-End Developer</div>
           <div class="hero-card-stats">
-            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Projetos</span></div>
-            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Dedicação</span></div>
-            <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Criatividade</span></div>
+            <div class="stat">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Projetos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Dedicação</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Criatividade</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee">
-      <span>HTML</span><span class="dot">✦</span><span>CSS</span><span class="dot">✦</span><span>JavaScript</span><span class="dot">✦</span><span>React + Vite</span><span class="dot">✦</span><span>Design Responsivo</span><span class="dot">✦</span><span>Google Sheets</span><span class="dot">✦</span><span>Apps Script</span><span class="dot">✦</span><span>localStorage</span><span class="dot">✦</span><span>Git & GitHub</span><span class="dot">✦</span><span>GitHub Pages</span><span class="dot">✦</span><span>Front-End Dev</span><span class="dot">✦</span>
-      <span>HTML</span><span class="dot">✦</span><span>CSS</span><span class="dot">✦</span><span>JavaScript</span><span class="dot">✦</span><span>React + Vite</span><span class="dot">✦</span><span>Design Responsivo</span><span class="dot">✦</span><span>Google Sheets</span><span class="dot">✦</span><span>Apps Script</span><span class="dot">✦</span><span>localStorage</span><span class="dot">✦</span><span>Git & GitHub</span><span class="dot">✦</span><span>GitHub Pages</span><span class="dot">✦</span><span>Front-End Dev</span>
-    </div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+<span>HTML</span><span class="dot">✦</span>
+<span>CSS</span><span class="dot">✦</span>
+<span>JavaScript</span><span class="dot">✦</span>
+<span>React + Vite</span><span class="dot">✦</span>
+<span>Design Responsivo</span><span class="dot">✦</span>
+<span>Google Sheets</span><span class="dot">✦</span>
+<span>Apps Script</span><span class="dot">✦</span>
+<span>localStorage</span><span class="dot">✦</span>
+<span>Git & GitHub</span><span class="dot">✦</span>
+<span>GitHub Pages</span><span class="dot">✦</span>
+<span>Front-End Dev</span>
   </div>
+</div>
 
+  <!-- PROJETOS -->
   <div id="projetos">
     <div class="section">
       <div class="section-label">Trabalhos</div>
-      <h2 class="section-title">MEUS<br>PROJETOS</h2>
+      <div class="section-title">MEUS<br>PROJETOS</div>
+
       <div class="projects-grid">
+        <!-- Featured -->
         <div class="project-card featured reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">✂️</div></div>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">✂️</div>
+          </div>
           <div class="project-body">
             <span class="project-tag">Destaque</span>
             <h3>Barbearia do Fabrício</h3>
             <p>Site responsivo de barbearia com agendamento e design moderno. Interface pensada para facilitar a vida do cliente e do barbeiro.</p>
-            <a href="https://programadorfabricio.github.io/barbearia-site/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <a href="https://programadorfabricio.github.io/barbearia-site/" target="_blank" class="project-link">
+              Ver projeto →
+            </a>
           </div>
         </div>
+<!-- Card Clone Netflix -->
+<div class="project-card reveal">
+  <div class="project-img">
+    <div class="project-img-bg"></div>
+    <div class="project-img-grid"></div>
+    <div class="project-emoji">🎬</div>
+  </div>
+  <div class="project-body">
+    <span class="project-tag">Front-end React</span>
+    <h3>Clone Netflix</h3>
+    <p>Aplicação desenvolvida com React e Vite, consumindo a API do TMDB para listar filmes e séries. Deploy realizado via GitHub Pages.</p>
+    <a href="https://programadorfabricio.github.io/clonetflix-vite/" target="_blank" class="project-link">
+      ver projeto →
+    </a>
+  </div>
+</div>
+
+
+         <!-- Card 1 -->
         <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">🎬</div></div>
-          <div class="project-body">
-            <span class="project-tag">Front-end React</span>
-            <h3>Clone Netflix</h3>
-            <p>Aplicação desenvolvida com React e Vite, consumindo a API do TMDB para listar filmes e séries. Deploy via GitHub Pages.</p>
-            <a href="https://programadorfabricio.github.io/clonetflix-vite/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">❄️</div>
           </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">❄️</div></div>
           <div class="project-body">
             <span class="project-tag">Site Institucional</span>
             <h3>Ártico Climatização</h3>
             <p>Site institucional escuro e moderno com formulário integrado ao Google Sheets e Gmail.</p>
-            <a href="https://programadorfabricio.github.io/ar-condicionado---site/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <a href="https://programadorfabricio.github.io/ar-condicionado---site/" target="_blank" class="project-link">
+              ver projeto →
+            </a>
           </div>
         </div>
+
+              <!-- Card 2 -->
         <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">🏥</div></div>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">🏥</div>
+          </div>
           <div class="project-body">
             <span class="project-tag">Painel Administrativo</span>
-            <h3>Sistema Clínica</h3>
-            <p>Sistema web de gestão clínica com módulos de agendamento, pacientes, prontuários, financeiro e estoque — com autenticação e interface responsiva.</p>
-            <a href="https://programadorfabricio.github.io/clinica/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <h3>sistema clínica</h3>
+            <p>            <p>Clínica System é um sistema web de gestão clínica com HTML, CSS e JavaScript, com módulos de agendamento, pacientes, prontuários, financeiro e estoque — com autenticação e interface responsiva.</p></p>
+            <a href="https://programadorfabricio.github.io/clinica/" target="_blank" class="project-link">
+              ver projeto →
+            </a>
           </div>
         </div>
+
+          <!-- Card 3 -->
         <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">🐟</div></div>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">🐟</div>
+          </div>
           <div class="project-body">
             <span class="project-tag">Cardápio Digital</span>
             <h3>KURO Sushi & Sake</h3>
             <p>Cardápio digital com carrinho de compras funcional, filtros por categoria e sistema de pedidos em tempo real.</p>
-            <a href="https://programadorfabricio.github.io/Card-pio-Digital/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <a href="https://programadorfabricio.github.io/Card-pio-Digital/" target="_blank" class="project-link">
+              ver projeto →
+            </a>
           </div>
         </div>
+
+
+  <!-- Card 4 -->
         <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">🎬</div></div>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">🎬</div>
+          </div>
           <div class="project-body">
             <span class="project-tag">Formulário</span>
             <h3>Formulário de Filme</h3>
             <p>Formulário interativo que envia dados diretamente para o email. Design limpo e funcional.</p>
-            <a href="https://programadorfabricio.github.io/formulario-filme/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <a href="https://programadorfabricio.github.io/formulario-filme/" target="_blank" class="project-link">
+              ver projeto →
+            </a>
           </div>
         </div>
+
+        <!-- Card 5 -->
         <div class="project-card reveal">
-          <div class="project-img" aria-hidden="true"><div class="project-img-bg"></div><div class="project-img-grid"></div><div class="project-emoji">📋</div></div>
+          <div class="project-img">
+            <div class="project-img-bg"></div>
+            <div class="project-img-grid"></div>
+            <div class="project-emoji">📋</div>
+          </div>
           <div class="project-body">
             <span class="project-tag">Formulário</span>
             <h3>Formulário de Inscrição</h3>
             <p>Inscrições para eventos fictícios com envio direto ao Google Sheets. Integração real e funcional.</p>
-            <a href="https://programadorfabricio.github.io/Landing-Page/" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto →</a>
+            <a href="https://programadorfabricio.github.io/Landing-Page/" class="project-link">
+              Ver projeto →
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- DEPOIMENTOS -->
   <div id="depoimentos" class="testimonials-wrap">
     <div class="testimonials-inner">
       <div class="section-label">Clientes</div>
-      <h2 class="section-title">O QUE DIZEM<br>SOBRE MIM</h2>
+      <div class="section-title">O QUE DIZEM<br>SOBRE MIM</div>
       <div class="testimonials-grid">
-        <article class="testimonial-card reveal">
-          <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="testimonial-card reveal">
+          <div class="quote-mark">"</div>
           <p>O Fabrício entregou o site da minha barbearia antes do prazo e ficou incrível! Superou todas as expectativas.</p>
           <div class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">JS</div>
-            <div><div class="author-name">João Silva</div><div class="author-role">Dono da Barbearia Silva</div></div>
+            <div class="author-avatar">JS</div>
+            <div>
+              <div class="author-name">João Silva</div>
+              <div class="author-role">Dono da Barbearia Silva</div>
+            </div>
           </div>
-        </article>
-        <article class="testimonial-card reveal">
-          <div class="quote-mark" aria-hidden="true">"</div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="quote-mark">"</div>
           <p>Formulários práticos, funcionais e bonitos. Trabalho impecável, entrega rápida. Recomendo muito!</p>
           <div class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">MO</div>
-            <div><div class="author-name">Maria Oliveira</div><div class="author-role">Organizadora de Eventos</div></div>
+            <div class="author-avatar">MO</div>
+            <div>
+              <div class="author-name">Maria Oliveira</div>
+              <div class="author-role">Organizadora de Eventos</div>
+            </div>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- CONTATO -->
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-left reveal">
@@ -317,59 +916,75 @@
         <h2>VAMOS<br>TRABALHAR<br><span>JUNTOS?</span></h2>
         <p>Tem um projeto em mente? Me manda uma mensagem e vamos transformar sua ideia em realidade.</p>
         <div class="contact-info">
-          <div class="contact-item"><div class="contact-icon" aria-hidden="true">📧</div><span>fabricioalves2000@gmail.com</span></div>
-          <div class="contact-item"><div class="contact-icon" aria-hidden="true">📍</div><span>Brasil</span></div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            fabricioalves2000@gmail.com
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            Brasil
+          </div>
         </div>
       </div>
+
       <div class="reveal">
-        <form id="contactForm" onsubmit="enviarFormulario(event)" class="contact-form" novalidate>
+        <form id="contactForm" onsubmit="enviarFormulario(event)" class="contact-form">
           <div class="form-field">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+            <label>Nome</label>
+            <input type="text" id="nome" placeholder="Seu nome completo" required>
           </div>
           <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
           </div>
           <div class="form-field">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conta sobre seu projeto..." required></textarea>
+            <label>Mensagem</label>
+            <textarea id="mensagem" rows="5" placeholder="Conta sobre seu projeto..." required></textarea>
           </div>
-          <button type="submit" class="btn-primary" id="btnEnviar" style="border-radius:10px; padding:15px;">Enviar mensagem →</button>
+          <button type="submit" class="btn-primary" id="btnEnviar" style="border-radius:10px; padding:15px;">
+            Enviar mensagem →
+          </button>
         </form>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Fabrício<span>.</span></div>
-    <nav class="footer-links" aria-label="Links sociais">
-      <a href="https://github.com/programadorfabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/fabricio-henrique-alves-de-souza-947458287/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://w.app/aywmor" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </nav>
+    <div class="footer-logo">Fabrício</div>
+    <div class="footer-links">
+      <a href="https://github.com/programadorfabricio" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/fabricio-henrique-alves-de-souza-947458287/?skipRedirect=true" target="_blank">LinkedIn</a>
+      <a href="https://w.app/aywmor" target="_blank">WhatsApp</a>
+    </div>
     <div class="footer-copy">© 2026 Fabrício — Todos os direitos reservados</div>
   </footer>
 
-  <a href="https://w.app/aywmor" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
-    <img src="imagens/whatsapp.png" alt="WhatsApp" width="60" height="60" fetchpriority="high">
+    <!-- BOTÃO WHATS -->
+  <a href="https://w.app/aywmor" class="btn-whatsapp">
+    <img src="whatsapp.png" alt="WhatsApp">
   </a>
 
   <script>
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     reveals.forEach(r => observer.observe(r));
 
+    // Formulário
     function enviarFormulario(event) {
       event.preventDefault();
+
       const nome     = document.getElementById("nome").value;
       const email    = document.getElementById("email").value;
       const mensagem = document.getElementById("mensagem").value;
+
       const btn = document.getElementById("btnEnviar");
       btn.textContent = "Enviando...";
       btn.disabled = true;
+
       fetch("https://script.google.com/macros/s/AKfycbxYwZt8NVaKznt3r9juh7St6WcZog-5Q2FVItFupRuqBPWAlTbMuQsEcBy8Dc-qhtVz/exec", {
         method: "POST",
         body: new URLSearchParams({ "name": nome, "email": email, "message": mensagem })
@@ -380,7 +995,8 @@
             <div style="font-size:3rem; margin-bottom:16px;">✅</div>
             <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; letter-spacing:0.03em; margin-bottom:8px;">Obrigado, ${nome}!</h2>
             <p style="color:var(--ink2); line-height:1.6;">Mensagem recebida. Em breve entro em contato. 🚀</p>
-          </div>`;
+          </div>
+        `;
         document.querySelector(".contact-left h2").innerHTML = "MENSAGEM<br>RECEBIDA<br><span>COM SUCESSO!</span>";
       })
       .catch(error => {
@@ -390,5 +1006,5 @@
       });
     }
   </script>
+
 </body>
-</html>
